@@ -21,8 +21,12 @@ RUN apk update && \
     rm allure-2.13.8.tgz
 
 COPY requirements.txt . /app/
+
+
+
+
 WORKDIR /app
-RUN pip3 install -r requirements.txt
+
 
 
 
