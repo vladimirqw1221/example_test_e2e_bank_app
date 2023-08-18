@@ -3,7 +3,7 @@ FROM python:3.12.0a4-alpine3.17
 RUN echo "https://dl-4.alpinelinux.org/alpine/v3.10/main" >> /etc/apk/repositories && \
     echo "https://dl-4.alpinelinux.org/alpine/v3.10/community" >> /etc/apk/repositories
 
-
+COPY requirements.txt . /app/
 # install chromedriver
 RUN apk update
 RUN apk add --no-cache chromium chromium-chromedriver tzdata
@@ -20,7 +20,7 @@ RUN apk update && \
     ln -s /opt/allure-2.13.8/bin/allure /usr/bin/allure && \
     rm allure-2.13.8.tgz
 
-COPY requirements.txt . /app/
+COPY . .
 
 
 
