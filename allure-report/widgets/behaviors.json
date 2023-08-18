@@ -1,0 +1,1 @@
+{"total":2,"items":[{"uid":"88b8d9eddddf8763cba1b9d3087883cc","name":"Cteate new user","statistic":{"failed":0,"broken":3,"skipped":0,"passed":0,"unknown":0,"total":3}},{"uid":"c31562086598a58ddc5e1b1c21e32be0","name":"Login page","statistic":{"failed":0,"broken":2,"skipped":0,"passed":0,"unknown":0,"total":2}}]}
