@@ -13,3 +13,5 @@ class BaseTest:
         request.cls.costumer_login_page = CostumerLogin(driver, DataSite.BASE_URL)
 
         request.cls.bank_manager_login_page = BankManagerLogin(driver, DataSite.BASE_URL)
+
+        request.cls.driver = driver
