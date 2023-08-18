@@ -13,7 +13,7 @@ permissions:
   contents: read
 
 env:
-  BASE_URL: ${{secrets.BSE_URL}}
+  BASE_URL: ${{secrets.BASE_URL}}
 
 
 
