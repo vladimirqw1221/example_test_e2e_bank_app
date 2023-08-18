@@ -10,8 +10,8 @@ class BaseTest:
 
     @pytest.fixture(autouse=True)
     def setup(self, driver, request):
-        request.cls.costumer_login_page = CostumerLogin(driver, DataSite.BASE_URL)
+        request.cls.costumer_login_page = CostumerLogin(driver, "https://www.globalsqa.com/angularJs-protractor/BankingProject/#/login")
 
-        request.cls.bank_manager_login_page = BankManagerLogin(driver, DataSite.BASE_URL)
+        request.cls.bank_manager_login_page = BankManagerLogin(driver, "https://www.globalsqa.com/angularJs-protractor/BankingProject/#/login")
 
         request.cls.driver = driver
