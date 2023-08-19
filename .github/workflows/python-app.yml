@@ -17,7 +17,7 @@ jobs:
 
       - name: Run UI-tests via docker-compose
         env:
-          BASE_URL:${{secrets.BASE_URL}}
+          BASE_URL:${{ secrets.BASE_URL }}
 
         run: |
           pytest --alluredir=results || true
