@@ -4,6 +4,8 @@ on:
   push:
     branches-ignore:
       - '!master'
+  env:
+    BASE_URL: {{secrets.BASE_URL}}
 
 jobs:
   linter:
@@ -11,7 +13,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         env:
-          BASE_URL: {{secrets.BASE_URL}}
+          GIT_TRACE: 1
+          GIT_CURL_VERBOSE: 1
+
 
       - name: Set up Python 3.x
         uses: actions/setup-python@v2
