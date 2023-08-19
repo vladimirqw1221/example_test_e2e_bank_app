@@ -4,8 +4,8 @@ on:
   push:
     branches-ignore:
       - '!master'
-  env:
-    BASE_URL: {{secrets.BASE_URL}}
+env:
+  BASE_URL: {{secrets.BASE_URL}}
 
 jobs:
   linter:
