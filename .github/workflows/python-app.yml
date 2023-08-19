@@ -36,9 +36,9 @@ jobs:
         run: |
           pytest || true
 
-      - name: List files in directory
+      - name: Create directory for history
         run: |
-          ls -R ./.github/gh-pages/history/
+          mkdir -p ./.github/gh-pages/history/
         shell: /usr/bin/bash -e {0}
 
       - name: Copy history from gh-pages to allure-results
