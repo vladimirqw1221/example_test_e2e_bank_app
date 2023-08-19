@@ -1,4 +1,4 @@
-name: main-workflow
+name: ui test
 
 on:
   push:
