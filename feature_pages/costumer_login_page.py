@@ -55,6 +55,7 @@ class CostumerLogin(BaseClass):
     @allure.step("Pay transfer list")
     def transaction_checking(self):
         self.select_element_is_clickable(self.locator.TRANSACTION_BTN).click()
+        self.select_element_is_visibility(self.locator.LOGO_TEXT)
         try:
             result = self.wait.until(EC.presence_of_all_elements_located(self.locator.LIST_TRANSACTION))
 

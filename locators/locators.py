@@ -20,6 +20,10 @@ class LocatorsCostumerLogin:
     RESET_BTN = (By.CSS_SELECTOR, "button[class='btn']:nth-child(3)")
     HOME_BTN = (By.CSS_SELECTOR, "button[class='btn home']")
 
+    # locator title for it load page
+
+    LOGO_TEXT = (By.XPATH, "//strong[@class='mainHeading']")
+
 
 class LocatorsBankManagerLogin:
     MANAGER_LOGIN_BTN = (By.XPATH, "(//button[@class='btn btn-primary btn-lg'])[2]")
