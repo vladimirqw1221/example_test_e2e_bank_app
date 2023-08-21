@@ -53,7 +53,7 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           personal_token: ${{ secrets.CI_TOKEN }}
-          external_repository: username/repo
+          external_repository: vladimirqw1221/repo
           publish_branch: gh-pages
           publish_dir: allure-report
           force_orphan: true
