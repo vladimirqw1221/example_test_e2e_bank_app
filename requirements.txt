@@ -1,8 +1,0 @@
-allure-pytest
-Faker
-pytest
-python-dateutil
-python-dotenv
-requests
-selenium
-webdriver-manager
