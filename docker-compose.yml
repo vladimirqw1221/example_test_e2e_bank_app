@@ -1,17 +1,39 @@
-version: '3.7'
+#version: '3.7'
+#
+#services:
+#  regression:
+#    image: python:3.12.0a4-alpine3.17
+#    build:
+#      context: .
+#      dockerfile: Dockerfile
+#    environment:
+#      - BASE_URL=${BASE_URL}
+#    volumes:
+#      - ./:/app/
+#    working_dir: /app
+#
+#    command: /bin/sh -c "ls -la && pytest  --alluredir=allure-result"
+
+
+version: "3.7"
 
 services:
-  regression:
-    image: python:3.12.0a4-alpine3.17
-    build:
-      context: .
-      dockerfile: Dockerfile
+
+  selenoid:
+    image: aerokube/selenoid
+    ports:
+      - "4444:4444"
+
+  tests:
     environment:
       - BASE_URL=${BASE_URL}
+    build: .
+
     volumes:
-      - ./:/app/
-    working_dir: /app
+      - ./:/app
+    depends_on:
+      - selenoid
 
-    command: /bin/sh -c "ls -la && pytest  --alluredir=allure-result"
 
-
+volumes:
+  allure-results:

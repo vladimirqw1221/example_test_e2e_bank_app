@@ -86,3 +86,6 @@ class BankManagerLogin(BaseClass):
                 assert list_customer == False, "Test Fail"
         except TimeoutException:
             self.select_element_is_clickable(self.locator.HOME_BTN).click()
+
+
+   
