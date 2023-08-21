@@ -34,7 +34,7 @@ jobs:
         
     - name: Test  
       run: | 
-        pytest --alluredir=allure-results --no-failure-artifacts
+        pytest --alluredir=allure-results 
         
     - name: Generate report
       run: |
