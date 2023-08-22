@@ -76,6 +76,8 @@ jobs:
         if: always()
         with:
           debug: true
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          to: ${{ secrets.TELEGRAM_TO }}
           message: |
             Ссылка на отчет: ${{ env.REPORT_URL }}
 
