@@ -102,4 +102,4 @@ jobs:
           message: >
             ${{ github.workflow }} finished with status ${{ job.status }}.
             View Allure Report here: [Click here](${{ steps.generate-url.outputs.ALLURE_REPORT_URL }})
-#
+
