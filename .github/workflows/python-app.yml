@@ -69,3 +69,15 @@ jobs:
           token: ${{ secrets.TELEGRAM_TOKEN }}
           to: ${{ secrets.TELEGRAM_TO }}
           message: ${{ github.workflow }} finished with status ${{ job.status }}
+
+      - name: Print env vars
+        run: |
+          echo "Environment variables:"
+          echo "${{ env }}"
+
+      - name: Print context
+        run: |
+          echo "Context:"
+          echo "${{ toJSON(github) }}"
+          echo "${{ toJSON(job) }}"
+          echo "${{ toJSON(steps) }}"
