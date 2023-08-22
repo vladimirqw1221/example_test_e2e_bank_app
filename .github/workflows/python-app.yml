@@ -14,11 +14,16 @@ jobs:
     runs-on: ubuntu-latest
     continue-on-error: true
     steps:
+       #         deleted
+
       - name: Checkout (copy) gh-pages repository to GitHub runner
         uses: actions/checkout@v2
         with:
           ref: gh-pages
           path: ./.github/gh-pages
+
+          #         deleted
+
 
       - uses: actions/checkout@v2
       - name: Set up Python 3.10
@@ -38,11 +43,7 @@ jobs:
         run: |
           pytest --alluredir=allure-results 
 
-      - name: Copy history from gh-pages to allure-results
-        if: always()
-        run: |
-          sudo mkdir -p allure-results/history  # Создает директорию для истории Allure
-          sudo cp -R ./.github/gh-pages/history/* allure-results/history/
+     
 
       - name: Add allure information
         working-directory: allure-results
@@ -63,6 +64,18 @@ jobs:
           allure_report: allure-report
           gh_pages: gh-pages
           allure_history: allure-history
+
+#         deleted
+      - name: Copy history
+        if: always()
+        run: |
+          if [ -d .github/gh-pages/history ]; then
+            cp -R .github/gh-pages/history/* allure-results/history/
+          fi
+
+#          deleted
+
+
       - name: Deploy report to Github Pages
         if: always()
         uses: peaceiris/actions-gh-pages@v3
