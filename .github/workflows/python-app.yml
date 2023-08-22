@@ -74,8 +74,8 @@ jobs:
 
       - uses: appleboy/telegram-action@master
         if: always()
-        debug: true
         with:
+          debug: true
           message: |
             Ссылка на отчет: ${{ env.REPORT_URL }}
 
