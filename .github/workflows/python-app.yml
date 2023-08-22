@@ -73,6 +73,7 @@ jobs:
       
 
       - uses: appleboy/telegram-action@master
+        debug: true
         if: always()
         with:
           message: |
