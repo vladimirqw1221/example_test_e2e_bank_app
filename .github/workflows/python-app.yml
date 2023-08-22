@@ -69,7 +69,7 @@ jobs:
       - name: Generate report URL
         if: always()
         run: |
-          echo "REPORT_URL=https://$GITHUB_REPOSITORY_OWNER.github.io/$GITHUB_RUN_NUMBER/" >> $GITHUB_ENV
+          echo "REPORT_URL=https://$GITHUB_REPOSITORY_OWNER.github.io/$GITHUB_REPOSITORY/$GITHUB_RUN_NUMBER/" >> $GITHUB_ENV
       
 
       - uses: appleboy/telegram-action@master
