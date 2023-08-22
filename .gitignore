@@ -5,5 +5,5 @@ venv
 __pycache__/
 allure-result
 debug.py
-#allure-report
+allure-report
 d.yml

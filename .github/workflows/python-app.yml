@@ -14,6 +14,13 @@ jobs:
     runs-on: ubuntu-latest
     continue-on-error: true
     steps:
+#      - name: Checkout(copy) gh-pages repository to GutHub runner
+#      - uses: actions/checkout@v2
+#        with:
+#          ref: gh-pages
+#          path: ./.github/gh-pages
+#          if delete
+
       - uses: actions/checkout@v2
       - name: Set up Python 3.10
         uses: actions/setup-python@v2
@@ -59,60 +66,35 @@ jobs:
           PUBLISH_BRANCH: gh-pages
           PUBLISH_DIR: allure-history
 
-
-
-#      - name: Send notification
-#        if: always()
-#        uses: appleboy/telegram-action@master
-#        with:
-#          debug: true
-#          token: ${{ secrets.TELEGRAM_TOKEN }}
-#          to: ${{ secrets.TELEGRAM_TO }}
-#          message: ${{ github.workflow }} finished with status ${{ job.status }}
-#          message: >
-#            ${{ github.workflow }} finished with status ${{ job.status }}.
-#            View Allure Report here: https://${{ github.repository }}/gh-pages/
-
-      - name: Print env vars
+      - name: Generate report URL
         if: always()
         run: |
-          echo "Environment variables:"
-          echo "${{ env }}"
+          echo "REPORT_URL=https://$GITHUB_REPOSITORY_OWNER.github.io/$GITHUB_REPOSITORY/gh-pages/index.html" >> $GITHUB_ENV
+      
 
-      - name: Print context
+      - uses: appleboy/telegram-action@master
         if: always()
-        run: |
-          echo "Context:"
-          echo "${{ toJSON(github) }}"
-          echo "${{ toJSON(job) }}"
-          echo "${{ toJSON(steps) }}"
-          
-          
-      - name: Generate Allure Report URL
-        if: always()
-        id: generate-url
-        run: echo "ALLURE_REPORT_URL=https://${{ github.repository }}/gh-pages/" >> $GITHUB_ENV
-
-      - name: Send Telegram notification
-        if: always()
-        uses: appleboy/telegram-action@master
         with:
-          token: ${{ secrets.TELEGRAM_TOKEN }}
-          to: ${{ secrets.TELEGRAM_TO }}
           message: |
-            Отчет готов:
+            Ссылка на отчет: ${{ env.REPORT_URL }}
 
-            [Посмотреть отчет](${{ steps.generate-url.outputs.ALLURE_REPORT_URL }})
 
-            ${{ github.workflow }} успешно выполнен!
-#      - name: Send notification
+#      - name: Generate Allure Report URL
+#        if: always()
+#        id: generate-url
+#        run: echo "ALLURE_REPORT_URL=https://${{ github.repository }}/gh-pages/" >> $GITHUB_ENV
+#
+#      - name: Send Telegram notification
 #        if: always()
 #        uses: appleboy/telegram-action@master
 #        with:
-#          debug: true
 #          token: ${{ secrets.TELEGRAM_TOKEN }}
 #          to: ${{ secrets.TELEGRAM_TO }}
-#          message: >
-#            ${{ github.workflow }} finished with status ${{ job.status }}.
-#            View Allure Report here: <a href="${{ steps.generate-url.outputs.ALLURE_REPORT_URL }}">Click here</a>
+#          message: |
+#            Отчет готов:
+#
+#            [Посмотреть отчет](${{ steps.generate-url.outputs.ALLURE_REPORT_URL }})
+#
+#            ${{ github.workflow }} успешно выполнен!
+
            
