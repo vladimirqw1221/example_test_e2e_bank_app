@@ -61,17 +61,17 @@ jobs:
 
 
 
-      - name: Send notification
-        if: always()
-        uses: appleboy/telegram-action@master
-        with:
-          debug: true
-          token: ${{ secrets.TELEGRAM_TOKEN }}
-          to: ${{ secrets.TELEGRAM_TO }}
+#      - name: Send notification
+#        if: always()
+#        uses: appleboy/telegram-action@master
+#        with:
+#          debug: true
+#          token: ${{ secrets.TELEGRAM_TOKEN }}
+#          to: ${{ secrets.TELEGRAM_TO }}
 #          message: ${{ github.workflow }} finished with status ${{ job.status }}
-          message: >
-            ${{ github.workflow }} finished with status ${{ job.status }}.
-            View Allure Report here: https://${{ github.repository }}/gh-pages/
+#          message: >
+#            ${{ github.workflow }} finished with status ${{ job.status }}.
+#            View Allure Report here: https://${{ github.repository }}/gh-pages/
 
       - name: Print env vars
         if: always()
@@ -86,3 +86,20 @@ jobs:
           echo "${{ toJSON(github) }}"
           echo "${{ toJSON(job) }}"
           echo "${{ toJSON(steps) }}"
+          
+          
+      - name: Generate Allure Report URL
+        id: generate-url
+        run: echo "ALLURE_REPORT_URL=https://${{ github.repository }}/gh-pages/" >> $GITHUB_ENV
+
+      - name: Send notification
+        if: always()
+        uses: appleboy/telegram-action@master
+        with:
+          debug: true
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          to: ${{ secrets.TELEGRAM_TO }}
+          message: >
+            ${{ github.workflow }} finished with status ${{ job.status }}.
+            View Allure Report here: [Click here](${{ steps.generate-url.outputs.ALLURE_REPORT_URL }})
+#
