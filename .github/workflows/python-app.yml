@@ -59,12 +59,12 @@ jobs:
           PUBLISH_BRANCH: gh-pages
           PUBLISH_DIR: allure-history
 
-      - name: Send success message
-        if: ${{ success() }}
+      - name: Send notification
+        if: always()
         uses: appleboy/telegram-action@master
         with:
           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
-          message: The workflow ${{ github.workflow }} completed successfully on ${{ github.event.repository.name }}!
+        message: The workflow ${{ github.workflow }} finished with status ${{ job.status }} on ${{ github.event.repository.name }}
      
       
