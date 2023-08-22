@@ -58,5 +58,13 @@ jobs:
           PERSONAL_TOKEN: ${{ secrets.CI_TOKEN }}
           PUBLISH_BRANCH: gh-pages
           PUBLISH_DIR: allure-history
+
+      - name: Send success message
+        if: ${{ success() }}
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_TO }}
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          message: The workflow ${{ github.workflow }} completed successfully on ${{ github.event.repository.name }}!
      
       
