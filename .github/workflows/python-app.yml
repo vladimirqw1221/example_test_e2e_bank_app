@@ -68,7 +68,10 @@ jobs:
           debug: true
           token: ${{ secrets.TELEGRAM_TOKEN }}
           to: ${{ secrets.TELEGRAM_TO }}
-          message: ${{ github.workflow }} finished with status ${{ job.status }}
+#          message: ${{ github.workflow }} finished with status ${{ job.status }}
+          message: >
+            ${{ github.workflow }} finished with status ${{ job.status }}.
+            View Allure Report here: https://${{ github.repository }}/gh-pages/
 
       - name: Print env vars
         if: always()
