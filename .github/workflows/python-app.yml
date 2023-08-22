@@ -103,9 +103,7 @@ jobs:
           token: ${{ secrets.TELEGRAM_TOKEN }}
           to: ${{ secrets.TELEGRAM_TO }}
           message: |
-            Ссылка на отчет:
-            <a href="${{ steps.generate-url.outputs.ALLURE_REPORT_URL }}">Нажми сюда</a>
-
+            message: ${{ github.workflow }} успешно выполнен!
 #      - name: Send notification
 #        if: always()
 #        uses: appleboy/telegram-action@master
