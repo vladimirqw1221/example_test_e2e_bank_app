@@ -65,6 +65,6 @@ jobs:
         with:
           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
-        message: The workflow ${{ github.workflow }} finished with status ${{ job.status }} on ${{ github.event.repository.name }}
+          message: The workflow ${{ github.workflow }} finished with status ${{ job.status }} on ${{ github.event.repository.name }}
      
       
