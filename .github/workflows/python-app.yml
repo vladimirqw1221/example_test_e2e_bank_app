@@ -63,7 +63,7 @@ jobs:
 
       - name: Send notification
         if: always()
-        uses: appleboy/telegram-action@master
+        uses: appleboy/telegram-action@v0.1.4
         with:
           debug: true
           token: ${{ secrets.TELEGRAM_TOKEN }}
@@ -71,11 +71,13 @@ jobs:
           message: ${{ github.workflow }} finished with status ${{ job.status }}
 
       - name: Print env vars
+        if: always()
         run: |
           echo "Environment variables:"
           echo "${{ env }}"
 
       - name: Print context
+        if: always()
         run: |
           echo "Context:"
           echo "${{ toJSON(github) }}"
