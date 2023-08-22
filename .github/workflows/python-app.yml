@@ -91,7 +91,8 @@ jobs:
       - name: Generate Allure Report URL
         if: always()
         id: generate-url
-        run: echo "ALLURE_REPORT_URL=https://${{ github.repository }}/gh-pages/" >> $GITHUB_ENV
+#        run: echo "ALLURE_REPORT_URL=https://${{ github.repository }}/gh-pages/" >> $GITHUB_ENV
+        run: echo "ALLURE_REPORT_URL=https://vladimirqw1221.github.io/example_test_e2e_bank_app/gh-pages/" >> $GITHUB_ENV
 
       - name: Send notification
         if: always()
