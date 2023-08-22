@@ -63,7 +63,7 @@ jobs:
 
       - name: Send notification
         if: always()
-        uses: appleboy/telegram-action@v0.1.3
+        uses: appleboy/telegram-action@master
         with:
           debug: true
           token: ${{ secrets.TELEGRAM_TOKEN }}
