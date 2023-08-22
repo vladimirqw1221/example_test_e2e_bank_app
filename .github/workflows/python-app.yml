@@ -59,12 +59,13 @@ jobs:
           PUBLISH_BRANCH: gh-pages
           PUBLISH_DIR: allure-history
 
-      - name: Send notification
-        if: always()
+      - name: Send notification via telegram/slack
         uses: appleboy/telegram-action@master
         with:
           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
-          message: The workflow ${{ github.workflow }} finished with status ${{ job.status }} on ${{ github.event.repository.name }}
-     
-      
+          args: |
+            *allure-notifications-${{env.version}} is now available for downloading at the link* https://github.com/${{ github.repository }}/releases/latest/download/allure-notifications-${{env.version}}.jar
+            *See Changelog here*:
+            https://github.com/${{ github.repository }}/releases/latest/
+          format: markdown
