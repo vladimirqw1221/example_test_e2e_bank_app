@@ -59,12 +59,13 @@ jobs:
           PUBLISH_BRANCH: gh-pages
           PUBLISH_DIR: allure-history
 
-      # ... предыдущие шаги
+
 
       - name: Send notification
         if: always()
         uses: appleboy/telegram-action@master
         with:
+          debug: true
           token: ${{ secrets.TELEGRAM_TOKEN }}
           to: ${{ secrets.TELEGRAM_TO }}
           message: ${{ github.workflow }} finished with status ${{ job.status }}
