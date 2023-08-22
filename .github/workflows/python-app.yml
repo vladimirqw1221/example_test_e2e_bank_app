@@ -88,23 +88,20 @@ jobs:
           echo "${{ toJSON(steps) }}"
           
           
-      - name: Generate Allure Report URL
+      - name: Generate report URL
         if: always()
-        id: generate-url
-        run: echo "ALLURE_REPORT_URL=https://${{ github.repository }}/gh-pages/" >> $GITHUB_ENV
+        run: |
+             echo "REPORT_URL=https://$GITHUB_ACTOR.github.io/$GITHUB_REPOSITORY/gh-pages/index.html" >> $GITHUB_ENV
 
       - name: Send Telegram notification
         if: always()
         uses: appleboy/telegram-action@master
         with:
           token: ${{ secrets.TELEGRAM_TOKEN }}
-          to: ${{ secrets.TELEGRAM_TO }}
+          to: ${{ secrets.TELEGRAM_CHAT_ID }}
           message: |
-            Отчет готов:
-
-            [Посмотреть отчет](${{ steps.generate-url.outputs.ALLURE_REPORT_URL }})
-
-            ${{ github.workflow }} успешно выполнен!
+            Ссылка на отчет:
+            ${{ env.REPORT_URL }}
 #      - name: Send notification
 #        if: always()
 #        uses: appleboy/telegram-action@master
