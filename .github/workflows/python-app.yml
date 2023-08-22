@@ -89,6 +89,7 @@ jobs:
           
           
       - name: Generate Allure Report URL
+        if: always()
         id: generate-url
         run: echo "ALLURE_REPORT_URL=https://${{ github.repository }}/gh-pages/" >> $GITHUB_ENV
 
