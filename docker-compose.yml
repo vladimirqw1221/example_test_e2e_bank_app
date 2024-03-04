@@ -12,6 +12,8 @@ services:
       - ./:/app/
     working_dir: /app
 
-    command: /bin/sh -c "ls -la && pytest  --alluredir=allure-result"
+#    command: /bin/sh -c "ls -la && pytest  --alluredir=allure-result"
+    command: pytest
+
 
 

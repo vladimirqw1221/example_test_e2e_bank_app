@@ -30,6 +30,7 @@ class BankManagerLogin(BaseClass):
         assert alert.text.split()[2] == "successfully", "This costumer not is added in base"
         alert.accept()
 
+
     @allure.step("Checking account for created new user in base list")
     def checking_account_for_new_user(self):
         try:
@@ -43,6 +44,7 @@ class BankManagerLogin(BaseClass):
             assert False, "Issue param in not list"
 
     @allure.step("Choose a new user in list")
+
     def switch_to_account(self):
         self.select_element(self.locator.SELECT_ACCOUNT_LIST, "5")
         self.select_element(self.locator.CURRENCY_LIST, "Dollar")

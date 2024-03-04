@@ -90,6 +90,18 @@ class CostumerLogin(BaseClass):
         self.select_element_is_clickable(self.locator.LOGIN_BTN).click()
         word = self.select_element_is_present(self.locator.WELCOME_TITLE).text
         assert word.split()[0] == "Welcome", "Header is not show in dashboard"
+        
+
+
+
+
+
+
+
+
+
+
+        
 
 
 

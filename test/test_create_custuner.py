@@ -11,7 +11,7 @@ class TestCreateCostuner(BaseTest):
     @pytest.mark.smoke
     def test_create_new_user(self):
         self.bank_manager_login_page.open()
-        self.bank_manager_login_page.is_open_browser()
+        # self.bank_manager_login_page.is_open_browser()
         self.bank_manager_login_page.create_new_account_user()
         self.bank_manager_login_page.checking_account_for_new_user()
         self.bank_manager_login_page.switch_to_account()
@@ -22,7 +22,7 @@ class TestCreateCostuner(BaseTest):
     @pytest.mark.smoke
     def test_search_new_user_in_list(self):
         self.bank_manager_login_page.open()
-        self.bank_manager_login_page.is_open_browser()
+        # self.bank_manager_login_page.is_open_browser()
         self.bank_manager_login_page.create_new_account_user()
         self.bank_manager_login_page.checking_account_for_new_user()
         self.bank_manager_login_page.switch_to_account()

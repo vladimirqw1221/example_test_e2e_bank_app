@@ -1,9 +1,14 @@
+from _ast import Tuple
+
+from selenium.webdriver.remote.webelement import WebElement
 from selenium.webdriver.support.wait import WebDriverWait as wait
+
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.select import Select
 import allure
 from allure import attachment_type
 from src.wrongs.wrong_errors import GlobalWrong
+from selenium.webdriver.common.action_chains import ActionChains
 
 
 class BaseClass:
@@ -34,7 +39,7 @@ class BaseClass:
         """This method for select one element if element visibility"""
         return self.wait.until(EC.visibility_of_element_located(locator))
 
-    def select_element_is_present(self, locator):
+    def select_element_is_present(self, locator) -> WebElement | ActionChains:
         """This method for select one element if element presence"""
         return self.wait.until(EC.presence_of_element_located(locator))
 
@@ -70,6 +75,30 @@ class BaseClass:
     def add_js(self, element):
         """This method for use JavaScript"""
         return self.driver.execute_script(element)
+
+    # def find(self, locator: Tuple[str, str], timeout: int = None) -> WebElement:
+    #     return wait(driver=self.driver, timeout=timeout).until(
+    #         EC.presence_of_element_located(locator))
+
+
+    # def action_ch(self):
+    #     wait_driver =  self.driver.implicitly_wait(5)
+    #     return ActionChains(wait_driver)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
 
 
 
