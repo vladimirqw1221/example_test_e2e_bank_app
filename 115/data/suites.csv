@@ -1,6 +1,0 @@
-"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
-"passed","Sat Mar 23 11:22:57 GMT 2024","Sat Mar 23 11:23:11 GMT 2024","14269","test","test_create_custuner","TestCreateCostuner","","","Create new user in data base",""
-"failed","Sat Mar 23 11:23:11 GMT 2024","Sat Mar 23 11:23:21 GMT 2024","9549","test","test_create_custuner","TestCreateCostuner","","","Search new user in data base",""
-"failed","Sat Mar 23 11:23:21 GMT 2024","Sat Mar 23 11:23:31 GMT 2024","9557","test","test_create_custuner","TestCreateCostuner","","","Delete new user in data base",""
-"failed","Sat Mar 23 11:22:40 GMT 2024","Sat Mar 23 11:22:57 GMT 2024","16494","test","test_costumer_login","TestCostumerLogin","","","Bank account transfer for native user",""
-"failed","Sat Mar 23 11:22:57 GMT 2024","Sat Mar 23 11:22:57 GMT 2024","262","test","test_costumer_login","TestCostumerLogin","","","Bank account transfer for random user",""
