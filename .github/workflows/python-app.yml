@@ -32,11 +32,7 @@ jobs:
       - name: Run tests
         run: |
           pytest --alluredir=allure-results
-      - name: Generate Link
-        if: always()
-        run: |
-          wget https://github.com/qa-guru/allure-notifications/releases/download/4.2.1/allure-notifications-4.2.1.jar
-          java "-DconfigFile=config.json" -jar allure-notifications-4.2.1.jar
+      
 
 
      
